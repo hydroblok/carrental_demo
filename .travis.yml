@@ -1,0 +1,33 @@
+sudo: required
+language: java
+jdk: oraclejdk8
+
+services:
+  - docker
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::7}
+    - secure: VBaKaJQApAJWOMJQHcqEfvoPe+FEOzCJ73zCQHTfa7p/N5+LLyoA5lMsfar58Wizy+J7m7SZ38af9pIVxYDAmJmMxBq0hdisM2dgTE69JOlcF12ATIdVQP9mj2NFAQ+hEMVXeNZLE//uUGOXwE6vh4ndZTJKUn5aysKtTRYPXGXjtNo7c74Lcky11qPcpBZcm5kZCSzzFGd41I7+5IWekY+AJtB2fKOtpsI47ugcGa/oYBHzv5yi9R7MeVeWyg5nD/xySrubnppbbvpE3itk7pN+zIuv43KsyHsIlfnm29JOfb9sTONt7dIZNQgSgwSvnQyOG9/4ihbFS/HxpyzVPuPmbtJlf7zGlVsE4tSrYxMOhrTvx84gRsAAptlKyNSn2POJx3L27LK7lrs8ngxVv8het/JPqc3uVvlaSbWrGCIBfLBhjsQc7DEpeA2BvtrN59TCQsIQ6Ku/mbo7XrHNrVnppXfT8jBsJLXguhSnNdEmjJaX6LmK5B0Ft2Y9hGZhAXu5XseET1IyUzVi5JehwAchV7IyJCoGn/sUmb1mzIRi2aB8EGSxT7cpQ+BzrMnMG5bOMdwh1ht9ti0B/ccpWDHdjx1HfikWsctfXhPUmUUU8oNmrkBA44hlqkjCOfKmCZZIvafA86CXuyz6i2PM5QrRfAAGG5cazumVGTR2Yz8=
+    - secure: WgwC0FF8/Zeodrbsz624XzbmNlk6Meb+r8SxoKxdI9775xlvzpZhGJ+r+mRTwXeAHsWgPsjXcY9DuK+enms3o9g3rBfrkUZKH2zrjVa5p8RMD3DjRKUYrJv+gcQB2I8NXeEMvdRyTsa2T2Khk5pehEKLpSzMjAAPc+rjzRWI+iZGB5Xj0dKnWmqlz7NDSQX2ySug3XUtioN9nY2HiKLXjrZlZ0v+7UmVamuvkWLWiQsy6prDviP0qu1z86LTPZvAx5wTQF4GzcHLJLUZ9wzioNl31QE/SWKhqoo2muDxfUjlRWHP3igoALe8B0c/15Tznob9Vn5b3zk7+wONSak0tm1iGV8gW3WtExMXkaZB2fudoIe0uSgtwXRvtM1JcjRvA95O+KTgqpaRUoaOcS6Ko63Fxgy/yTWDawItb2TwlIKfc9a8qY7+tMjziiHGROq9nPVspRvbYV5JQzoAQU0It/M6+xkzN85fIcvsOrHr0WXoL6oaYLnpOvXzZ4ZvHrA12rTbqI/ydt2ys0YlPgPD/Sx5f4WVj6ZmHTPJFJLtGPM8R8OpLc3VidouRDwvIBfRTBMFJ/qrmwYx5YFqmCPlBmSMQI8tZStezOkzwDawkUbh5ltd9NbC5dUto+3F/Tp/Zspz/fQFHT3iBY/ctMk/efWJbFMgAvTc233tNVg5K3U=
+    - secure: UZbfi29aKNsV2i8yLw1xVjhWo5JFtvQvmA0EVebvJVX8BoumOdjAYeoD87KS0PHAmxjC64MeSgKnqDlMX/zmQGrtOPFY+OrHoneNy2SR6PQfu08TpVE4Plt8Ipf101gai7XcRpVdAEIvZv7KyOLXRsJHyuw+CqpwPUCwWcuNuSwzrNoOyqxvfu9+BMGxttv5xu3CiNt833ZYadDw8A6xmlOClLkCG7Nb/Ba0rXVMlmxVmmLMX57acaDM+Ki4bFxGvKb84hit2JBCFN8euYJZxpjoOLnUtZ87SZ1oYiGAHdT1ZB9Wq8Zu7T7jMecySrpkuRyE99QciTNbeMeuReeXKJh5dkmN+jdL81SvTn+2+kul8sFPQpeEqOL8W+tpFzaTaZx/HSogX/Y39v1NExETzvEAU8JAph5f31ZlhjD7J81uwXUp0LM33KAx7C0RNBMI9bSZzrdIorXqCPPqUlAZaBTErhhce3Qt+3NCd8xX6ETLXMrL49UQKzC/ZNpFvygN6NSQAMtkvnXmXYGXPoJ6r9/w5l4MuSgbagOcWKpdqYBC/lBPpHFhLCUf+Jn2iI/TmfsjeQYcp/nG5TrpYclL6E3yssk5EZ+ENQs9y5SY60XzCcqlkBAtBwCNRUFCKM11nrQm4pYUq7YLRKN0FAd/LNQeD+SP19hP6x3VeDypk5s=
+    - secure: dWg0b9ZAp7J7j+HN1hfDeFK112eMeAjFuIIWC0m4mxBvG80vDN0RQ98HDsnUv4m1/yYYkTSXiEt6qBsBmgeNQsUVkERuA2cZjMKn6aUlNdSVjvBfCyGuuobvNPkq2z2Dp2k6jhwwii54kqD4hwlJEuGacWrK25EJEJSE/4CY6JrTiZ+sMVOrRhPPIZlnv7yUSSzytJVgEWN1NLZQgt6TKepDOw9ADi/Q3VkU7okhy805lQ75SyTfKpmr/GFNX/XfzrFvxe8M/utaJplmP78wfvVyPqD+38MGg2NHV8YACn1s2UMnx+AcLY6TKVPE+D43FhG4OleO+gaVwhFk2ALp4rX/qi/6Hd+nR0u7qcHlg60w8wZO1AZFbGtc7a500ZQ9T5qaOg4iwzwEgNEGFuGGUpfTVuiTCFXqPJODlBaB1BMiH+LLUyjRQoKKDpMKedKHKKUppflE9U78Rej1j/J/ZsoJPAr8HLjO0X3GmrQQnLH9MxQBpHIZ3j4XlIjvfNOjr9fgWpGSLc+kl9QYzlzAoB9S6kpGIvVzzFPr7nBowykhxsIgtutpttlqdmbhn11lhev30MDxxCzN2csa8z3VSGjx8JW5y2DSrNXc2qZODYDkH8Fo6viA7j7bVTdhwvwl1mwXz4Qq2m7vK6/urN0HnvFWdPq+9pZiJa+gY0ex+s8=
+addons:
+  sonarcloud:
+    organization: hydroblok
+    token:
+      secure: "$SONAR_TOKEN"
+script:
+  - "./mvnw clean install -B"
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+cache:
+  directories:
+    - "$HOME/.m2/repository"
+    - "$HOME/.sonar/cache"
+after_success:
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH;
+    fi`
+  - export IMAGE_NAME=hydroblok/car-rental-demo
+  - docker build -t $IMAGE_NAME:$COMMIT .
+  - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
+  - docker push $IMAGE_NAME

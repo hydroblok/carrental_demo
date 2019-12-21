@@ -10,7 +10,7 @@
     <h1>Order Details</h1>
 </div>
 <div class="col-md-4">
-    <h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+    <h3 th:inline="text">Thank you [[${#httpServletRequest.remoteUser}]]</h3>
 </div>
 <div class="col-md-4" style="padding:20px 0">
     <form th:action="@{/logout}" method="post">
