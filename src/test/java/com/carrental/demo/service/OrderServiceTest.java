@@ -24,12 +24,6 @@ public class OrderServiceTest {
     @Mock
     private CarService carService;
 
-    @Mock
-    private UserDetailServiceImpl userService;
-
-    @Mock
-    private OrderRepository orderRepository;
-
     @Test
     public void createOrderTest(){
         Long carId = 1000L;
@@ -43,7 +37,6 @@ public class OrderServiceTest {
         car.setPrice(100D);
         when(carService.search(carId)).thenReturn(car);
         when(carService.saveCar(car)).thenReturn(car);
-        when(userService.getCurrentUser(username)).thenReturn(user);
         Order order = orderService.createOrder(carId, LocalDate.parse("2019-01-01"), LocalDate.parse("2019-01-02"), username);
         assertEquals(carModel, order.getCarModel());
         assertEquals(username, order.getOwnedBy());

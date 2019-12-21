@@ -19,6 +19,11 @@ public class UserController {
 	@Autowired
     private UserRepository repository;
 
+	@RequestMapping("/")
+	public String init() {
+		return "login";
+	}
+
 	@RequestMapping("/login")
 	public String login() {
 		return "login";

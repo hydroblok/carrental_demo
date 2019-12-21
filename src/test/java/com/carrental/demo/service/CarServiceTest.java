@@ -24,8 +24,8 @@ public class CarServiceTest {
     @Autowired
     private CarService carService;
 
-    private LocalDate rentDate = LocalDate.of(2019, 12, 10);
-    private LocalDate returnDate = LocalDate.of(2019, 12, 15);
+    private LocalDate rentDate = LocalDate.of(2018, 12, 10);
+    private LocalDate returnDate = LocalDate.of(2018, 12, 15);
 
     @Test
     public void searchByDate() {
