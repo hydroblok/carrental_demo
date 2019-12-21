@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<div class="container">
+	<h2>Search Cars</h2>
+	<div class="alert alert-danger" th:if="${param.error}">
+		Invalid Return Date!
+	</div>
+	<div class="col-md-4">
+		<form th:object="${searchRequest}" th:action="@{doSearch}" action="#" method="get">
+			<div><label> Rent   Date : <input type="date" th:field="*{rentDate}"  class="form-control"/> </label></div>
+			<div><label> Return Date : <input type="date" th:field="*{returnDate}" class="form-control"/> </label></div>
+			<p th:if="${#fields.hasErrors('returnDate')}" th:errors="*{returnDate}" class="alert alert-danger">Return Date Error</p>
+			<input type="submit" class="btn btn-primary" value="Search"></input>
+		</form>
+	</div>
+</div>
+</html>
