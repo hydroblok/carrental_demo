@@ -2,33 +2,31 @@ sudo: required
 language: java
 jdk: oraclejdk8
 dist: trusty
-
 services:
-  - docker
+- docker
 env:
   global:
-    - COMMIT=${TRAVIS_COMMIT::7}
-    - secure: VBaKaJQApAJWOMJQHcqEfvoPe+FEOzCJ73zCQHTfa7p/N5+LLyoA5lMsfar58Wizy+J7m7SZ38af9pIVxYDAmJmMxBq0hdisM2dgTE69JOlcF12ATIdVQP9mj2NFAQ+hEMVXeNZLE//uUGOXwE6vh4ndZTJKUn5aysKtTRYPXGXjtNo7c74Lcky11qPcpBZcm5kZCSzzFGd41I7+5IWekY+AJtB2fKOtpsI47ugcGa/oYBHzv5yi9R7MeVeWyg5nD/xySrubnppbbvpE3itk7pN+zIuv43KsyHsIlfnm29JOfb9sTONt7dIZNQgSgwSvnQyOG9/4ihbFS/HxpyzVPuPmbtJlf7zGlVsE4tSrYxMOhrTvx84gRsAAptlKyNSn2POJx3L27LK7lrs8ngxVv8het/JPqc3uVvlaSbWrGCIBfLBhjsQc7DEpeA2BvtrN59TCQsIQ6Ku/mbo7XrHNrVnppXfT8jBsJLXguhSnNdEmjJaX6LmK5B0Ft2Y9hGZhAXu5XseET1IyUzVi5JehwAchV7IyJCoGn/sUmb1mzIRi2aB8EGSxT7cpQ+BzrMnMG5bOMdwh1ht9ti0B/ccpWDHdjx1HfikWsctfXhPUmUUU8oNmrkBA44hlqkjCOfKmCZZIvafA86CXuyz6i2PM5QrRfAAGG5cazumVGTR2Yz8=
-    - secure: WgwC0FF8/Zeodrbsz624XzbmNlk6Meb+r8SxoKxdI9775xlvzpZhGJ+r+mRTwXeAHsWgPsjXcY9DuK+enms3o9g3rBfrkUZKH2zrjVa5p8RMD3DjRKUYrJv+gcQB2I8NXeEMvdRyTsa2T2Khk5pehEKLpSzMjAAPc+rjzRWI+iZGB5Xj0dKnWmqlz7NDSQX2ySug3XUtioN9nY2HiKLXjrZlZ0v+7UmVamuvkWLWiQsy6prDviP0qu1z86LTPZvAx5wTQF4GzcHLJLUZ9wzioNl31QE/SWKhqoo2muDxfUjlRWHP3igoALe8B0c/15Tznob9Vn5b3zk7+wONSak0tm1iGV8gW3WtExMXkaZB2fudoIe0uSgtwXRvtM1JcjRvA95O+KTgqpaRUoaOcS6Ko63Fxgy/yTWDawItb2TwlIKfc9a8qY7+tMjziiHGROq9nPVspRvbYV5JQzoAQU0It/M6+xkzN85fIcvsOrHr0WXoL6oaYLnpOvXzZ4ZvHrA12rTbqI/ydt2ys0YlPgPD/Sx5f4WVj6ZmHTPJFJLtGPM8R8OpLc3VidouRDwvIBfRTBMFJ/qrmwYx5YFqmCPlBmSMQI8tZStezOkzwDawkUbh5ltd9NbC5dUto+3F/Tp/Zspz/fQFHT3iBY/ctMk/efWJbFMgAvTc233tNVg5K3U=
-    - secure: UZbfi29aKNsV2i8yLw1xVjhWo5JFtvQvmA0EVebvJVX8BoumOdjAYeoD87KS0PHAmxjC64MeSgKnqDlMX/zmQGrtOPFY+OrHoneNy2SR6PQfu08TpVE4Plt8Ipf101gai7XcRpVdAEIvZv7KyOLXRsJHyuw+CqpwPUCwWcuNuSwzrNoOyqxvfu9+BMGxttv5xu3CiNt833ZYadDw8A6xmlOClLkCG7Nb/Ba0rXVMlmxVmmLMX57acaDM+Ki4bFxGvKb84hit2JBCFN8euYJZxpjoOLnUtZ87SZ1oYiGAHdT1ZB9Wq8Zu7T7jMecySrpkuRyE99QciTNbeMeuReeXKJh5dkmN+jdL81SvTn+2+kul8sFPQpeEqOL8W+tpFzaTaZx/HSogX/Y39v1NExETzvEAU8JAph5f31ZlhjD7J81uwXUp0LM33KAx7C0RNBMI9bSZzrdIorXqCPPqUlAZaBTErhhce3Qt+3NCd8xX6ETLXMrL49UQKzC/ZNpFvygN6NSQAMtkvnXmXYGXPoJ6r9/w5l4MuSgbagOcWKpdqYBC/lBPpHFhLCUf+Jn2iI/TmfsjeQYcp/nG5TrpYclL6E3yssk5EZ+ENQs9y5SY60XzCcqlkBAtBwCNRUFCKM11nrQm4pYUq7YLRKN0FAd/LNQeD+SP19hP6x3VeDypk5s=
-    - secure: dWg0b9ZAp7J7j+HN1hfDeFK112eMeAjFuIIWC0m4mxBvG80vDN0RQ98HDsnUv4m1/yYYkTSXiEt6qBsBmgeNQsUVkERuA2cZjMKn6aUlNdSVjvBfCyGuuobvNPkq2z2Dp2k6jhwwii54kqD4hwlJEuGacWrK25EJEJSE/4CY6JrTiZ+sMVOrRhPPIZlnv7yUSSzytJVgEWN1NLZQgt6TKepDOw9ADi/Q3VkU7okhy805lQ75SyTfKpmr/GFNX/XfzrFvxe8M/utaJplmP78wfvVyPqD+38MGg2NHV8YACn1s2UMnx+AcLY6TKVPE+D43FhG4OleO+gaVwhFk2ALp4rX/qi/6Hd+nR0u7qcHlg60w8wZO1AZFbGtc7a500ZQ9T5qaOg4iwzwEgNEGFuGGUpfTVuiTCFXqPJODlBaB1BMiH+LLUyjRQoKKDpMKedKHKKUppflE9U78Rej1j/J/ZsoJPAr8HLjO0X3GmrQQnLH9MxQBpHIZ3j4XlIjvfNOjr9fgWpGSLc+kl9QYzlzAoB9S6kpGIvVzzFPr7nBowykhxsIgtutpttlqdmbhn11lhev30MDxxCzN2csa8z3VSGjx8JW5y2DSrNXc2qZODYDkH8Fo6viA7j7bVTdhwvwl1mwXz4Qq2m7vK6/urN0HnvFWdPq+9pZiJa+gY0ex+s8=
+  - COMMIT=${TRAVIS_COMMIT::7}
+  - secure: 0jag4OR/y4VoQxae98vlpAd8htHG5IKeMosX5IY/qQx8BIyJ2rXoUyVXbRL6HKjjB1ntdIp/2chiqGCgoOtZwSk2EUjublt6WThP+UV9LYja4N/hbSqGkOd/QWqRUHmU3XyyEgiwudoM6l1G5i0RCUSbvXFt6Cdi/8iuPTRMDF/DInp7YHDuw5vxeHt8GLtdk+rL5hmjJqKUKzd9Iv9ANU9CGYEY17fhQtldDae3extggmMh/fUBDvmYkwjze5DHfqh7mF6FvtAeh+tVqnbbYuPFTKOTjglxVj8ickt3L6fYpV+Im5rJVA5NIgy9BVgfxCdQSwBeKKmfW5K0Z0ytzSgWb56ovh3a1MuBb4B+vnqrrqH/YxodRrJybyT9H9C00++b3jQIivKXgTHKSQ5YxzRr2GAouzALELtljqnS4L2pHH8M/8GiB+z82z4HGDTW7KEJfxQHW+k/s2+x42y1ZBlGFT8L5PK0UjjLluIW4Y41nEbl5ycvQpiY3q7X0JENbErop0dfKg8SEDd1aoP0o3aK1s2mDVpFO5C88V0yp46ipE02VUDLujeMZd/p7F9ZJg+UsYRbh/6d8NJ9wVb9cckeIPzdQ3SMUpG1XnX0Tka4a0h0OT1shOTpd/j5V63sJ+w3LWBHmjBdkiwc0uLXVu4q6lyhubVSTKYZFVSYG1A=
+  - secure: QgKy3eN3hpC0wynr69LCUtuXxH/KT31e6EJzFouNZCScscpfJBrhla1YBtdun8nH9tGb8pcgslcoGF6j2EtA1ooTWzira9egAJeD75fs4tPeUXgo8yuvBxEhLtvt6fellte5hd3FU0zD6gpSUYAlmg8K6ZQy5I3ZxdRp5UcofYN6gcrp8mK18070mP17U/+Q8j6ezgDXttk6poW/QBGGVXCGg2NWAxUZjlLNmTtAzTLViqrg+SG9TPUUbAZ5kkFO1JXcFECbsP0G2RIjymuZQpIWZ/n6OPPxuSiVP4bw/MJBWoIDUdvGOlEwXxb0OiAiuue9zOZwVQZN3kqeRa7Mx9I9WRr5Zc7kxw2lFsovCCIOsd+43NpOuEiIuO1nBiOxFjebw8RTWcOJLa4wMokmpIImvX63gcwcTe/BojUrIIlYldYKYM3Wt7loJbQ70hZh/Ib3jNqcJNph3YPxXF5Z3EK8RnPu8J2VTvMCw8btczcsU7SzTZsW0QgUwhQ9/kFt4ot/+rXvAogcQ6cFuQCSlHq6BH9wVsZTo81MxchQRLUPPdWlF2ySPz3E2+Ol+8XEp2eBFApji+RFtOK9XZ/pKMVv733q9VChNkd9Qdu7HO/k7SJQLLso+KcbTdADT7kQ7/x7GZ0fOR2rCPevb4GHztXwOvE25yr+bCkZTVcrNkM=
+  - secure: niHNSLBTUtjz8gdu0S7BJ0ZHSQdqIXkr95bcumVj/cwTRLhm7dcg5XXt0DvasJYJsR38RLn//jgLRJwQqSkIoMmt8J3/FkmYkzyMKQoBZIFyPlnw2tJr4GcihW8jWoGHFNRHV0+nYs1E4fQY4SybffzfLvohZ0lGZOo9ItA9ueZL1AI7yyuolELx9JftD3k1YvHTqC7x7sTaggisdjI9Ag+SxBQd1XSEkgojekJilD1YiGPM2sjliz4dkJ+wcgzKWt3zM9e1F3hRK1InJSvZVlbiln+ng0g4KmS5wG3u38HV8NkAlZWwEFl/mi9Rvc+HudEhir3QQirEkyCawTuqZWCdMHPCIL+lPelV6P2CLO2EqimNyxXvhuTvM+ka3r5uMPRamQ3xdTN+ruWuHI9QDhdTn8RBkLsnAAVU9F1OZFO2AnYp5PsNXfLKCrBXhs+y8xgsFNOvMFB7jhHIjutrwVMnY5l8WNfbWRU9kGIi+qVMl9bw1XS4zIRZa1upATvZL78PNH3MqM2fhtdQjD24uR2cp2SHNO3mmfy4oAt6lgl0yVIQwwuvneLjeAb/dg4cWZ9HCdV3C1LF3zi9Blp/UNP/pjbYSb7qmrNIA6ZBv1kp2XhPWtXs/hemG88qPefyUIaKgAK/fkcAeUn8qwqV7sHflhuFwhVKh+er0/I2pPU=
 addons:
   sonarcloud:
     organization: hydroblok
     token:
       secure: "$SONAR_TOKEN"
 script:
-  - "./mvnw clean install -B"
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+- "./mvnw clean install -B"
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 cache:
   directories:
-    - "$HOME/.m2/repository"
-    - "$HOME/.sonar/cache"
+  - "$HOME/.m2/repository"
+  - "$HOME/.sonar/cache"
 after_success:
-  - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH;
-    fi`
-  - export IMAGE_NAME=hydroblok/car-rental-demo
-  - docker build -t $IMAGE_NAME:$COMMIT .
-  - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
-  - docker push $IMAGE_NAME
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH;
+  fi`
+- export IMAGE_NAME=hydroblok/car-rental-demo
+- docker build -t $IMAGE_NAME:$COMMIT .
+- docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
+- docker push $IMAGE_NAME
