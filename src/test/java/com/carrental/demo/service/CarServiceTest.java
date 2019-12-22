@@ -10,6 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -35,8 +37,19 @@ public class CarServiceTest {
         carRepository.save(car2);
         LocalDate rentDate1 = returnDate.plusDays(1);
         LocalDate returnDate1 = returnDate.plusDays(2);
-        List<Car> cars = carService.search(rentDate1, returnDate1);
-        assertEquals(2, cars.size());
+        Future<List<Car>> carsFuture = carService.search(rentDate1, returnDate1);
+        if (carsFuture.isDone()){
+            List<Car> cars = null;
+            try {
+                cars = carsFuture.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            assertEquals(2, cars.size());
+        }
+
     }
 
     @Test

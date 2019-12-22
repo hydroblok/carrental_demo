@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
 import java.time.LocalDate;
+import java.util.concurrent.ExecutionException;
 
 @Controller
 public class OrderController {
@@ -24,9 +25,16 @@ public class OrderController {
 
     @RequestMapping(value = "/order/{carId}")
     public String reserveCar(Principal principal, @PathVariable("carId") Long carId, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate rentDate,  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate returnDate, Model model){
-        Order order = orderService.createOrder(carId, rentDate, returnDate, principal.getName());
-        repository.save(order);
-        model.addAttribute("orderDetails", order);
+        Order order = null;
+        try {
+            order = orderService.createOrder(carId, rentDate, returnDate, principal.getName()).get();
+            repository.save(order);
+            model.addAttribute("orderDetails", order);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
         return "order";
     }
 
