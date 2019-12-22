@@ -14,6 +14,11 @@ import java.time.Period;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Future;
 
+/**
+ * Order service to contain the methods for placing orders
+ * @author Jimmy Luo
+ * @date 20191221
+ */
 @Service
 public class OrderService {
 
@@ -32,6 +37,14 @@ public class OrderService {
 
     private ConcurrentHashMap<String, Long> map = new ConcurrentHashMap<>();
 
+    /**
+     * Returns order's details
+     *
+     * @param rentDate - car's rent date
+     * @param returnDate - car's return date
+     * @param username - the user who rent the car
+     * @return - the future of the order details
+     */
     @Async("placeOrderExecutor")
     public Future<Order> createOrder(Long carId, LocalDate rentDate, LocalDate returnDate, String username){
 

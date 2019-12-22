@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 
+/**
+ * sig nup and login' API
+ * @author Jimmy Luo
+ * @date 20191221
+ */
 @Controller
 public class UserController {
 	@Autowired

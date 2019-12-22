@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 
 /**
  * This class is used by spring controller to authenticate and authorize user
- **/
+ * @author Jimmy Luo
+ * @date 20191221
+ */
 @Service
 public class UserDetailServiceImpl implements UserDetailsService  {
 	private final UserRepository repository;

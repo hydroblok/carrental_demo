@@ -10,7 +10,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 
 import com.carrental.demo.service.UserDetailServiceImpl;
 
-
+/**
+ * security config
+ * @author Jimmy Luo
+ * @date 20191221
+ */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
