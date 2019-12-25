@@ -2,6 +2,7 @@ package com.carrental.demo.service;
 
 import com.carrental.demo.domain.Car;
 import com.carrental.demo.repository.CarRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
@@ -16,6 +17,7 @@ import java.util.concurrent.Future;
  * @author Jimmy Luo
  * @date 20191221
  */
+@Slf4j
 @Service
 public class CarService {
 
@@ -33,6 +35,7 @@ public class CarService {
     public Future<List<Car>> search(LocalDate rentDate, LocalDate returnDate) {
 
         try{
+            log.info("[Thread ID:{}] Search available cars before rent date {}", Thread.currentThread().getId(), rentDate);
             List<Car> availableCars = carRepository.findCarsByReturnDateIsBefore(rentDate);
             availableCars.forEach( x -> {x.setRentDate(rentDate);});
             availableCars.forEach( x -> {x.setReturnDate(returnDate);});

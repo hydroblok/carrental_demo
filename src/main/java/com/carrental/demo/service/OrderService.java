@@ -3,6 +3,7 @@ package com.carrental.demo.service;
 import com.carrental.demo.domain.Car;
 import com.carrental.demo.domain.Order;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
@@ -19,6 +20,7 @@ import java.util.concurrent.Future;
  * @author Jimmy Luo
  * @date 20191221
  */
+@Slf4j
 @Service
 public class OrderService {
 
@@ -50,17 +52,21 @@ public class OrderService {
 
         //Handle the concurrency issue
         if(map.get(CARS_AVAILABLE_NUMBER) == null) {
+            log.info("Initialize a flag in jvm memory to save the available car's number:{}", CARS_TOTAL_NUMBER);
             map.put(CARS_AVAILABLE_NUMBER, CARS_TOTAL_NUMBER);
         }
 
+        log.info("[Thread ID:{}, username:{}] Car number before placing order is :{}", Thread.currentThread().getId(), username, map.get(CARS_AVAILABLE_NUMBER));
         carsNumberBeforeOrder.set(map.get(CARS_AVAILABLE_NUMBER));
 
+        //Reject to place order once there is no available car
         if(carsNumberBeforeOrder.get() == 0) {
             return null;
         }
 
         try{
-            map.put(CARS_AVAILABLE_NUMBER, carService.countCars(rentDate));
+            //Update the new available car's number to the flag
+            map.put(CARS_AVAILABLE_NUMBER, carsNumberBeforeOrder.get() - 1);
             Order order = new Order();
             Car car = carService.search(carId);
             car.setRentDate(rentDate);
@@ -79,7 +85,8 @@ public class OrderService {
             order.setOwnedBy(username);
             return new AsyncResult<>(order);
         } catch (Exception e) {
-            map.put(CARS_AVAILABLE_NUMBER, carsNumberBeforeOrder.get());
+            //Rollback the available number if any exception happens
+            map.put(CARS_AVAILABLE_NUMBER, carsNumberBeforeOrder.get() + 1);
             return null;
         }
 
