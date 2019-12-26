@@ -21,25 +21,17 @@ public class Car {
 
 	private String carModel;
 
-	@Column(name = "rentDate", columnDefinition = "DATE")
-	private LocalDate rentDate;
-
-	@Column(name = "returnDate", columnDefinition = "DATE")
-	private LocalDate returnDate;
-
 	private Double price;
 
 	public Car() {
 
 	}
 
-	public Car(Long carId, String carModel, String city, String color, LocalDate rentDate, LocalDate returnDate, Double price){
+	public Car(Long carId, String carModel, String city, String color, Double price){
 		this.carId = carId;
 		this.carModel = carModel;
 		this.city = city;
 		this.color = color;
-		this.rentDate = rentDate;
-		this.returnDate = returnDate;
 		this.price = price;
 	}
 }

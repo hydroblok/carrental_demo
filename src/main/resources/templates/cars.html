@@ -30,13 +30,13 @@
                 <th>City</th>
                 <th>Action</th>
             </tr>
-            <tr th:each = "car : ${cars}">
+            <tr th:each = "car : ${availableCars}">
                 <td th:text="${car.carModel}"></td>
                 <td th:text="${car.color}"></td>
                 <td th:text="${car.price}"></td>
                 <td th:text="${car.city}"></td>
                 <td>
-                    <a th:href="@{/order/{carId}(carId=${car.carId},rentDate=${car.rentDate},returnDate=${car.returnDate})}" class="btn btn-primary btn-xs">Place Order</a>
+                    <a th:href="@{/order/{carId}(carId=${car.carId},rentDate=${car.requestRentDate},returnDate=${car.requestReturnDate})}" class="btn btn-primary btn-xs">Place Order</a>
                 </td>
             </tr>
         </table>

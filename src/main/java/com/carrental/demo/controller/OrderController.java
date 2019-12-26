@@ -30,16 +30,7 @@ public class OrderController {
 
     @RequestMapping(value = "/order/{carId}")
     public String reserveCar(Principal principal, @PathVariable("carId") Long carId, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate rentDate,  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate returnDate, Model model){
-        Order order = null;
-        try {
-            order = orderService.createOrder(carId, rentDate, returnDate, principal.getName()).get();
-            repository.save(order);
-            model.addAttribute("orderDetails", order);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+        model.addAttribute("orderDetails", orderService.createOrder(carId, rentDate, returnDate, principal.getName()));
         return "order";
     }
 

@@ -42,8 +42,7 @@ public class CarController {
                 bindingResult.rejectValue("returnDate", "error.returnDate", "return date must be greater than rent date");
                 return "search";
             }
-            Future<List<Car>> carsFuture = carService.search(rentDate, returnDate);
-            model.addAttribute("cars", carsFuture.get());
+            model.addAttribute("availableCars", carService.search(rentDate, returnDate));
         }
 
         return "cars";
