@@ -2,24 +2,15 @@ package com.carrental.demo.service;
 
 import com.carrental.demo.domain.Car;
 import com.carrental.demo.domain.Order;
-import com.carrental.demo.domain.RentRecord;
 import com.carrental.demo.domain.User;
-import com.carrental.demo.repository.OrderRepository;
 import com.carrental.demo.repository.RentRecordRepository;
-import lombok.Setter;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
 import static org.junit.Assert.assertEquals;
